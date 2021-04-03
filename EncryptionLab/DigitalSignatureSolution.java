@@ -47,7 +47,7 @@ public class DigitalSignatureSolution {
 //TODO: print the length of output digest byte[], compare the length of file shorttext.txt and longtext.txt
         System.out.println("byte to hex string: " + byteToHex(digest));
         System.out.println("digest array length: " + digest.length);
-           
+
 //TODO: Create RSA("RSA/ECB/PKCS1Padding") cipher object and initialize is as encrypt mode, use PRIVATE key.
         Cipher rsaCipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
         rsaCipher.init(Cipher.ENCRYPT_MODE, privateKey);
@@ -57,8 +57,8 @@ public class DigitalSignatureSolution {
 
 //TODO: print the encrypted message (in base64format String using Base64) 
         String signedDigestHex = byteToHex(signedDigest);
-        System.out.println("signed digest hex : " + signedDigestHex);
-        System.out.println("signedDigest length: " + signedDigest.length);
+        System.out.println("encrypted msg : " + signedDigestHex);
+        System.out.println("encrypted msg length: " + signedDigest.length);
 //TODO: Create RSA("RSA/ECB/PKCS1Padding") cipher object and initialize is as decrypt mode, use PUBLIC key.           
         Cipher desCipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
         desCipher.init(Cipher.DECRYPT_MODE, publicKey);
@@ -67,8 +67,8 @@ public class DigitalSignatureSolution {
         System.out.println("decryptedSignedDigest length: " + decryptedSignedDigest.length);
 //TODO: print the decrypted message (in base64format String using Base64), compare with origin digest 
         String decryptedSignedDigestHex = byteToHex(decryptedSignedDigest);
-        System.out.println("decryptedSignedDigestHex: " + decryptedSignedDigestHex);
-        System.out.println("decryptedSignedDigestHex length: " + decryptedSignedDigestHex.length());
+        System.out.println("decrypted msg: " + decryptedSignedDigestHex);
+        System.out.println("decrypted msg length: " + decryptedSignedDigestHex.length());
         System.out.println("compare digest and decrypted digest: " + Arrays.equals(digest, decryptedSignedDigest));
 
 
